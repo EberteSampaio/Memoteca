@@ -18,15 +18,15 @@ import {NgForOf, NgIf} from "@angular/common";
 export class ListComponent {
 
   listThoughts = [
-    // {
-    //   content: 'Conteúdo passado do pai para filho',
-    //   author: 'Componente pai',
-    //   model: 'model2',
-    // },
-    // {
-    //   content: 'I love Alura',
-    //   author: 'Eberte Sampaio',
-    //   model: 'model1',
-    // }
+    {
+      content: 'Conteúdo passado do pai para filho Conteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filho',
+      author: 'Componente pai',
+      model: 'model2',
+    },
+    {
+      content: 'I love Alura',
+      author: 'Eberte Sampaio',
+      model: 'model1',
+    }
   ];
 }

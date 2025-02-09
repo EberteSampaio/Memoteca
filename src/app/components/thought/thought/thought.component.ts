@@ -1,9 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-thought',
   standalone: true,
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './thought.component.html',
   styleUrl: './thought.component.css'
 })
@@ -21,5 +24,13 @@ export class ThoughtComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  widthThought(): string {
+    if(this.thought.content.length > 256){
+      return "pensamento-g";
+    }
+
+    return "pensamento-p";
   }
 }
