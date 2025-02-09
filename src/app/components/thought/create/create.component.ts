@@ -15,10 +15,10 @@ import {RouterLink} from "@angular/router";
 export class CreateComponent implements OnInit{
 
   thought ={
-    id: '1',
-    content: 'Aprendendo Angular',
-    author: 'Eberte C. S. Junior',
-    model: 'model1'
+    id: '',
+    content: '',
+    author: '',
+    model: ''
   };
 
 
