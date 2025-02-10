@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
+import {Thought} from "../../../interfaces/thought";
+import {ThoughtService} from "../../../services/thought.service";
 
 @Component({
   selector: 'app-create',
@@ -14,15 +16,17 @@ import {RouterLink} from "@angular/router";
 })
 export class CreateComponent implements OnInit{
 
-  thought ={
-    id: '',
+  thought:Thought ={
     content: '',
     author: '',
     model: ''
   };
 
 
-  constructor() {
+  constructor(
+    private thousService: ThoughtService,
+    private router: Router,
+  ) {
 
   }
 
@@ -33,12 +37,13 @@ export class CreateComponent implements OnInit{
 
   createThought(): void
   {
-    alert("Created Thought");
+    this.thousService.create(this.thought).subscribe(() =>{
+      this.router.navigate(['/list']);
+    });
   }
-
 
   cancelThought(): void
   {
-    alert("Canceled Thought");
+    this.router.navigate(['/list']);
   }
 }

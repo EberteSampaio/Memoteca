@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {ThoughtComponent} from "../thought/thought.component";
 import {NgForOf, NgIf} from "@angular/common";
+import {Thought} from "../../../interfaces/thought";
+import {ThoughtService} from "../../../services/thought.service";
 
 @Component({
   selector: 'app-list',
@@ -15,18 +17,15 @@ import {NgForOf, NgIf} from "@angular/common";
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
 
-  listThoughts = [
-    {
-      content: 'Conteúdo passado do pai para filho Conteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filhoConteúdo passado do pai para filho',
-      author: 'Componente pai',
-      model: 'model2',
-    },
-    {
-      content: 'I love Alura',
-      author: 'Eberte Sampaio',
-      model: 'model1',
-    }
-  ];
+  listThoughts:Thought[] = [];
+
+  constructor(private thoughtService: ThoughtService) {}
+
+  ngOnInit() {
+    this.thoughtService.list().subscribe((listThoughts) => {
+      this.listThoughts = listThoughts;
+    });
+  }
 }
